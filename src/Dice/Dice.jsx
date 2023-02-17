@@ -1,4 +1,5 @@
 import React from "react"; 
+import SideDie from "../SideDie/SideDie";
 import style from './Dice.module.css'
 
 const Dice = ({ num, shake }) => {
@@ -7,6 +8,7 @@ const Dice = ({ num, shake }) => {
       <div className={style.DiceDiv}>
         <i className={`fas fa-dice-${num} ${style.Die} ${shake && style.shaking}`}></i>
       </div>
+      <div><SideDie /></div>
     </>
   );
 }
