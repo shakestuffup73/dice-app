@@ -6,21 +6,32 @@ const RollDice = () => {
 
   const [die1, setDie1] = useState('one')
   const [die2, setDie2] = useState('one')
+  const [shake, setShake] = useState(false)
+  const [disableRoll, setDisableRoll] = useState(false)
 
   const numbers = ['one', 'two', 'three', 'four', 'five', 'six']
 
   function rollDice (event) {
-    setDie1(numbers[Math.floor(Math.random() * numbers.length)])
-    setDie2(numbers[Math.floor(Math.random() * numbers.length)])
+    setShake(true)
+    setDisableRoll(true)
+    setTimeout(() => {
+      setDie1(numbers[Math.floor(Math.random() * numbers.length)])
+      setDie2(numbers[Math.floor(Math.random() * numbers.length)])
+      setShake(true)
+      setDisableRoll(false)
+    }, 350)
+    setShake(false)
   }
 
   return ( 
     <>
-    <div className={style.DiceDiv}>
-      <Dice num={die1} />
-      <Dice num={die2} />
+    <div className={style.RollDice}>
+      <div className={style.DiceDiv}>
+        <Dice num={die1} shake={shake}/>
+        <Dice num={die2} shake={shake}/>
+      </div>
+      <button onClick={rollDice} disabled={disableRoll}>Roll Dice</button>
     </div>
-      <button onClick={rollDice}>Roll Dice</button>
     </>
   );
 }

@@ -1,11 +1,11 @@
-import React, { useState } from "react"; 
+import React from "react"; 
 import style from './Dice.module.css'
 
-const Dice = ({ num }) => {
+const Dice = ({ num, shake }) => {
   return ( 
     <>
       <div className={style.DiceDiv}>
-        <i className={`fas fa-dice-${num}`}></i>
+        <i className={`fas fa-dice-${num} ${style.Die} ${shake && style.shaking}`}></i>
       </div>
     </>
   );
