@@ -19,7 +19,7 @@ const RollDice = () => {
       setDie2(numbers[Math.floor(Math.random() * numbers.length)])
       setShake(true)
       setDisableRoll(false)
-    }, 350)
+    }, 750)
     setShake(false)
   }
 
@@ -30,7 +30,7 @@ const RollDice = () => {
         <Dice num={die1} shake={shake}/>
         <Dice num={die2} shake={shake}/>
       </div>
-      <button onClick={rollDice} disabled={disableRoll}>Roll Dice</button>
+      <button onClick={rollDice} disabled={disableRoll}>{disableRoll ? 'Rolling...' : 'Roll Dice'}</button>
     </div>
     </>
   );
