@@ -1,0 +1,10 @@
+.DiceDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.DiceDiv > i {
+  margin: 10px;
+}
