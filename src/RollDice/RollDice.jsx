@@ -19,7 +19,7 @@ const RollDice = () => {
       setDie2(numbers[Math.floor(Math.random() * numbers.length)])
       setShake(true)
       setDisableRoll(false)
-    }, 750)
+    }, 775)
     setShake(false)
   }
 
