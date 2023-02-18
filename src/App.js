@@ -1,11 +1,18 @@
 import './App.css';
-import RollDice from './RollDice/RollDice';
+// import RollDice from './RollDice/RollDice';
+import Icon from './ Icon/Icon';
 
 function App() {
   return (
-    <div className="App">
-      <RollDice />
-    </div>
+    <>
+      {/* <div className="App">
+        <RollDice />
+      </div> */}
+      <div>
+        <Icon />
+      </div>
+    </>
+
   );
 }
 
