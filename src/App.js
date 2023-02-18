@@ -1,6 +1,8 @@
 import './App.css';
 // import RollDice from './RollDice/RollDice';
-import Icon from './ Icon/Icon';
+// import Icon from './ Icon/Icon';
+// import LottoBall from './LottoBall/LottoBall'
+import Lottery from './Lottery/Lottery'
 
 function App() {
   return (
@@ -8,8 +10,11 @@ function App() {
       {/* <div className="App">
         <RollDice />
       </div> */}
-      <div>
+      {/* <div>
         <Icon />
+      </div> */}
+      <div>
+        <Lottery />
       </div>
     </>
 
