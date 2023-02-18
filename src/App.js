@@ -15,9 +15,9 @@ function App() {
       </div> */}
       <div>
         <Lottery />
+        <Lottery title='Mini Daily' maxNum={10} maxBalls={4}/>
       </div>
     </>
-
   );
 }
 

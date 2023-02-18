@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import style from './LottoBall.module.css'
 
 const LottoBall = ({num}) => {
