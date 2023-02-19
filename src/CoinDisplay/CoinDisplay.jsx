@@ -31,12 +31,20 @@ const CoinDisplay = () => {
     flipCoin()
   }
 
+  const handleResetClick = (event) => {
+    setNumFlips(0)
+    setNumHeads(0)
+    setNumTails(0)
+    setSide('./images/BatHeads.png')
+  }
+
   return ( 
     <>
       <section className={style.Container}>
         <Coin side={side}/>
         <button onClick={handleClick}>Flip Me!</button>
         <p>Out of {numFlips}, there have been {numHeads} heads and {numTails} tails</p>
+        <button onClick={handleResetClick}>Reset</button>
       </section>
     </>
   );
