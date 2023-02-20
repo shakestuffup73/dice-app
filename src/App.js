@@ -3,7 +3,8 @@ import './App.css';
 // import Icon from './ Icon/Icon';
 // import LottoBall from './LottoBall/LottoBall'
 // import Lottery from './Lottery/Lottery'
-import CoinDisplay from './CoinDisplay/CoinDisplay'
+// import CoinDisplay from './CoinDisplay/CoinDisplay'
+import BoxDisplay from './BoxDisplay/BoxDisplay';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Lottery />
         <Lottery title='Mini Daily' maxNum={10} maxBalls={4}/>
       </div> */}
-      <CoinDisplay />
+      {/* <CoinDisplay /> */}
+      <BoxDisplay />
     </>
   );
 }
