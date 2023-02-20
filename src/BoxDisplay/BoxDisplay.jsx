@@ -1,14 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Box from "../Box/Box";
 // import style from './BoxDisplay.module.css'
 
 const BoxDisplay = () => {
 
-  const color = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
 
   return ( 
     <>
-      <Box color={color[0]}/>
+      
+      <Box colors={colors}/>
+      <Box colors={colors}/>
+      <Box colors={colors}/>
     </>
   );
 }
