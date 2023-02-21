@@ -6,33 +6,38 @@ const BoxDisplay = ({ numBoxes }) => {
 
   const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'lilac', 'teal', 'pink', 'maroon', 'black']
   
-  const [mangos, setMangos] = useState(
+  const [boxColors, setBoxColors] = useState(
     Array.from({length: numBoxes}).map(() => (
-      getRandomColor()
+      getRandomColor(colors)
     ))
   )
       
-  function getRandomColor() {
-    return colors[Math.floor(Math.random() * colors.length)]
+  function getRandomColor(choices) {
+
+    return choices[Math.floor(Math.random() * choices.length)]
   }
       
-  function handleClick(boxIdx) {
-    const output = [...mangos].map((mango, idx) => {
+  function handleClick(oldColor, boxIdx) {
+    const otherColors = colors.filter((boxColor) => (
+      boxColor !== oldColor 
+    ))
+
+    const output = [...boxColors].map((boxColor, idx) => {
       let element
       if (idx === boxIdx){
-        element = getRandomColor()
+        element = getRandomColor(otherColors)
       } else {
-        element = mango
+        element = boxColor
       }
       return element
     })
-    setMangos(output)
+    setBoxColors(output)
   }
 
   return ( 
     <div className={style.boxContainer}>
-      {mangos.map((box, idx)=>(
-        <Box key={'box-instance-' + (idx)} handleClick={() => handleClick(idx)} color={box} />
+      {boxColors.map((box, idx)=>(
+        <Box key={'box-instance-' + (idx)} handleClick={() => handleClick(box, idx)} color={box} />
       ))}
     </div>
   );
