@@ -20,7 +20,7 @@ function App() {
         <Lottery title='Mini Daily' maxNum={10} maxBalls={4}/>
       </div> */}
       {/* <CoinDisplay /> */}
-      <BoxDisplay />
+      <BoxDisplay numBoxes={12}/>
     </>
   );
 }

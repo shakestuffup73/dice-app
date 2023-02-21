@@ -1,20 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import style from './Box.module.css'
 
-const Box = ({ colors }) => {
-
-  let randomColor = colors[Math.floor(Math.random() * colors.length)]
-  let newColor = colors[Math.floor(Math.random() * colors.length)]
-  
-  const [color, setColor] = useState(randomColor)
+const Box = ({ chooseColor, color }) => {
 
   function handleClick(e) {
-    setColor(newColor)
+    chooseColor()
   }
-
+  
   return ( 
     <>
-      <div onClick={handleClick} className={style.Box} style={{ backgroundColor: color }}></div>
+      <div onClick={() => handleClick()} className={style.Box} style={{ backgroundColor: color }}></div>
     </>
   );
 }
