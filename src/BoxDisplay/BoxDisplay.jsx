@@ -11,18 +11,18 @@ const BoxDisplay = ({ numBoxes }) => {
       getRandomColor(colors)
     ))
   )
-      
-  function getRandomColor(choices) {
 
-    return choices[Math.floor(Math.random() * choices.length)]
+  function getRandomColor(colors) {
+    return colors[Math.floor(Math.random() * colors.length)]
   }
-      
+
   function handleClick(oldColor, boxIdx) {
+
     const otherColors = colors.filter((boxColor) => (
       boxColor !== oldColor 
     ))
 
-    const output = [...boxColors].map((boxColor, idx) => {
+    const newColor = [...boxColors].map((boxColor, idx) => {
       let element
       if (idx === boxIdx){
         element = getRandomColor(otherColors)
@@ -31,7 +31,7 @@ const BoxDisplay = ({ numBoxes }) => {
       }
       return element
     })
-    setBoxColors(output)
+    setBoxColors(newColor)
   }
 
   return ( 
