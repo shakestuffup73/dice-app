@@ -4,7 +4,7 @@ import style from './BoxDisplay.module.css'
 
 const BoxDisplay = ({ numBoxes }) => {
 
-  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'lilac', 'teal', 'pink', 'maroon', 'black']
+  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'lilac', 'teal', 'pink', 'maroon', 'black', 'tan']
   
   const [boxColors, setBoxColors] = useState(
     Array.from({length: numBoxes}).map(() => (
