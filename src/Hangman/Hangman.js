@@ -10,7 +10,7 @@ import img6 from './6.jpg'
 
 const Hangman = () => {
 
-  const [maxWrong, setMaxWrong]= useState(6)
+  // const [maxWrong, setMaxWrong]= useState(6)
   const images = [img0, img1, img2, img3, img4, img5, img6]
 
   const [nRight, setNRight] = useState(0)
