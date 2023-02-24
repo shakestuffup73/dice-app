@@ -22,7 +22,7 @@ function App() {
       </div> */}
       {/* <CoinDisplay /> */}
       {/* <BoxDisplay numBoxes={15}/> */}
-      <Hangman />
+      <Hangman maxWrong={7}/>
     </>
   );
 }
