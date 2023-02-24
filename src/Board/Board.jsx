@@ -6,7 +6,7 @@ const Board = (props) => {
 
   const {chanceLightStartsOn, ncols, nrows} = props
 
-  const [board, setBoard] = useState(createBoard)
+  const [board, setBoard] = useState(createBoard())
   const [hasWon, setHasWon] = useState(false)
 
   function createBoard() {
@@ -24,7 +24,7 @@ const Board = (props) => {
 
   function flipCellsAround(coord) {
     let { ncols, nrows } = props
-    setBoard([])
+
     let [y, x] = coord.split('-').map(Number)
     
     function flipCell(y, x) {
@@ -76,7 +76,7 @@ const Board = (props) => {
         {hasWon ? (
           <div className={style.winner}>
             <span className={style.neonOrange}>YOU</span>
-            <span className={style.neoBlue}>WIN!</span>
+            <span className={style.neonBlue}>WIN!</span>
           </div>
         ) : (
           <div>

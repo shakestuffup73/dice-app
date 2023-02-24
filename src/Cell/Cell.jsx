@@ -4,8 +4,8 @@ const Cell = (props) => {
 
   const { isLit, flipCellsAroundMe } = props
 
-  function handleClick(evt) {
-    flipCellsAroundMe()
+  const handleClick = (event) => {
+    flipCellsAroundMe(event.target.value)
   }
 
   return ( 
