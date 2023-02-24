@@ -4,7 +4,9 @@ import style from './Board.module.css'
 
 const Board = (props) => {
 
-  const {chanceLightStartsOn, ncols, nrows} = props
+  let ncols = 5
+  let nrows = 5
+  let chanceLightStartsOn = .25
 
   const [board, setBoard] = useState(createBoard())
   const [hasWon, setHasWon] = useState(false)
@@ -22,28 +24,33 @@ const Board = (props) => {
     return board
   }
 
-  function flipCellsAround(coord) {
+  
+  function flipCellsAroundMe(coord) {
+    setBoard(board)
     let { ncols, nrows } = props
-
-    let [y, x] = coord.split('-').map(Number)
+    let y = coord.split('-').map(Number)[0]
+    let x = coord.split('-').map(Number)[1]
+    console.log('YO this is [y, x]', [y, x])
     
     function flipCell(y, x) {
+      console.log('this is inside flipCell')
       if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
+        console.log('this is board[y][x]', board[y][x])
         board[y][x] = !board[y][x]
       }
     }
+
     flipCell(y, x); //Flip initial cell
-    flipCell(y, x - 1); //flip left
-    flipCell(y, x + 1); //flip right
-    flipCell(y - 1, x); //flip below
-    flipCell(y + 1, x); //flip above
+    
+    // flipCell(y, x - 1); //flip left
+    // flipCell(y, x + 1); //flip right
+    // flipCell(y - 1, x); //flip below
+    // flipCell(y + 1, x); //flip above
 
     let hasWon = board.every(row => row.every(cell => !cell))
-
-    setBoard(board)
     setHasWon(hasWon)
   }
-
+  
   function makeTable() {
     let tblBoard = [];
     for (let y = 0; y < nrows; y++) {
@@ -54,11 +61,10 @@ const Board = (props) => {
           <Cell
             key={coord}
             isLit={board[y][x]}
-            flipCellsAroundMe={() => flipCellsAround(coord)}
-            />
-            );
-        console.log('this is row', row)
-        console.log('this is coordinates', coord)
+            flipCellsAroundMe={() => flipCellsAroundMe(coord)}
+            coord={coord}
+          />
+        );
       }
       tblBoard.push(<tr key={y}>{row}</tr>);
     }

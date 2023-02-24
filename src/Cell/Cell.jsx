@@ -2,15 +2,16 @@ import style from './Cell.module.css'
 
 const Cell = (props) => {
 
-  const { isLit, flipCellsAroundMe } = props
+  const { isLit, flipCellsAroundMe, coord } = props
 
-  const handleClick = (event) => {
-    flipCellsAroundMe(event.target.value)
+  function handleClick (){
+    console.log('this is coord', coord)
+    flipCellsAroundMe()
   }
 
   return ( 
     <>
-      <td className={isLit ? `${style.CellLit}` : `${style.Cell}`} onClick={handleClick}/>
+      <td className={isLit ? `${style.CellLit}` : `${style.Cell}`} onClick={() => handleClick()}/>
     </>
   );
 }

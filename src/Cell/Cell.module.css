@@ -6,6 +6,10 @@
   transition: background-color 0.7s ease;
 }
 
+.Cell:hover {
+  background-color: palevioletred;
+}
+
 .CellLit {
   background-color: #00bcd4;
 }
