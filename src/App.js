@@ -5,7 +5,8 @@ import './App.css';
 // import Lottery from './Lottery/Lottery'
 // import CoinDisplay from './CoinDisplay/CoinDisplay'
 // import BoxDisplay from './BoxDisplay/BoxDisplay';
-import Hangman from './Hangman/Hangman';
+// import Hangman from './Hangman/Hangman';
+import Board from './Board/Board'
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       </div> */}
       {/* <CoinDisplay /> */}
       {/* <BoxDisplay numBoxes={15}/> */}
-      <Hangman maxWrong={7}/>
+      {/* <Hangman maxWrong={7}/> */}
+      {<Board />}
     </>
   );
 }
