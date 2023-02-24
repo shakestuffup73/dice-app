@@ -1,4 +1,4 @@
-import './Cell.module.css'
+import style from './Cell.module.css'
 
 const Cell = (props) => {
 
@@ -10,7 +10,7 @@ const Cell = (props) => {
 
   return ( 
     <>
-      <td className={"Cell" + isLit ? " Cell-lit" : ""} onClick={handleClick} />
+      <td className={isLit ? `${style.CellLit}` : `${style.Cell}`} onClick={handleClick}/>
     </>
   );
 }

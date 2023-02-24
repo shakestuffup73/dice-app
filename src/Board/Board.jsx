@@ -4,7 +4,7 @@ import style from './Board.module.css'
 
 const Board = (props) => {
 
-  const {ncols, nrows, chanceLightStartsOn} = props
+  const {chanceLightStartsOn, ncols, nrows} = props
 
   const [board, setBoard] = useState(createBoard)
   const [hasWon, setHasWon] = useState(false)
@@ -44,8 +44,8 @@ const Board = (props) => {
     setHasWon(hasWon)
   }
 
-  let tblBoard = [];
   function makeTable() {
+    let tblBoard = [];
     for (let y = 0; y < nrows; y++) {
       let row = [];
       for (let x = 0; x < ncols; x++) {
@@ -55,12 +55,14 @@ const Board = (props) => {
             key={coord}
             isLit={board[y][x]}
             flipCellsAroundMe={() => flipCellsAround(coord)}
-          />
-        );
+            />
+            );
+        console.log('this is row', row)
+        console.log('this is coordinates', coord)
       }
       tblBoard.push(<tr key={y}>{row}</tr>);
-      console.log('this is table board', tblBoard)
     }
+    console.log('this is table board', tblBoard)
     return (
       <table className={style.Board}>
         <tbody>{tblBoard}</tbody>
