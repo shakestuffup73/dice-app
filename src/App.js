@@ -24,7 +24,7 @@ function App() {
       {/* <CoinDisplay /> */}
       {/* <BoxDisplay numBoxes={15}/> */}
       {/* <Hangman maxWrong={7}/> */}
-      {<Board />}
+      {<Board nrows={5} ncols={5} chanceLightsStartOn={.25}/>}
     </>
   );
 }

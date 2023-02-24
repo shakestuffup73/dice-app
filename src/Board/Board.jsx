@@ -4,20 +4,22 @@ import style from './Board.module.css'
 
 const Board = (props) => {
 
-  const [board, setBoard] = useState([])
+  const {ncols, nrows, chanceLightStartsOn} = props
+
+  const [board, setBoard] = useState(createBoard)
   const [hasWon, setHasWon] = useState(false)
 
   function createBoard() {
     let board = [];
     // TODO: create array-of-arrays of true/false values
-    for (let y = 0; y < this.props.nrows; y++) {
+    for (let y = 0; y < nrows; y++) {
       let row = [];
-      for (let x = 0; x < this.props.ncols; x++) {
-        row.push(Math.random() < this.props.chanceLightStartsOn);
+      for (let x = 0; x < ncols; x++) {
+        row.push(Math.random() < chanceLightStartsOn);
       }
       board.push(row);
     }
-    return board;
+    return board
   }
 
   function flipCellsAround(coord) {
@@ -36,17 +38,17 @@ const Board = (props) => {
     flipCell(y - 1, x); //flip below
     flipCell(y + 1, x); //flip above
 
-    let winner = board.every(row => row.every(cell => !cell))
+    let hasWon = board.every(row => row.every(cell => !cell))
 
     setBoard(board)
-    setHasWon(winner)
+    setHasWon(hasWon)
   }
 
+  let tblBoard = [];
   function makeTable() {
-    let tblBoard = [];
-    for (let y = 0; y < this.props.nrows; y++) {
+    for (let y = 0; y < nrows; y++) {
       let row = [];
-      for (let x = 0; x < this.props.ncols; x++) {
+      for (let x = 0; x < ncols; x++) {
         let coord = `${y}-${x}`;
         row.push(
           <Cell
@@ -57,22 +59,28 @@ const Board = (props) => {
         );
       }
       tblBoard.push(<tr key={y}>{row}</tr>);
+      console.log('this is table board', tblBoard)
     }
+    return (
+      <table className={style.Board}>
+        <tbody>{tblBoard}</tbody>
+      </table>
+    )
   }
 
   return ( 
     <>
       <div>
         {hasWon ? (
-          <div className='winner'>
-            <span className='neon-orange'>YOU</span>
-            <span className='neon-blue'>WIN!</span>
+          <div className={style.winner}>
+            <span className={style.neonOrange}>YOU</span>
+            <span className={style.neoBlue}>WIN!</span>
           </div>
         ) : (
           <div>
-            <div className='Board-title'>
-              <div className='neon-orange'>Lights</div>
-              <div className='neon-blue'>Out</div>
+            <div className={style.BoardTitle}>
+              <div className={style.neonOrange}>Lights</div>
+              <div className={style.neonBlue}>Out</div>
             </div>
             {makeTable()}
           </div>
