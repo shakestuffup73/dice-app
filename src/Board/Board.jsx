@@ -26,29 +26,29 @@ const Board = (props) => {
 
   
   function flipCellsAroundMe(coord) {
-    setBoard(board)
-    let { ncols, nrows } = props
-    let y = coord.split('-').map(Number)[0]
-    let x = coord.split('-').map(Number)[1]
-    console.log('YO this is [y, x]', [y, x])
-    
-    function flipCell(y, x) {
-      console.log('this is inside flipCell')
-      if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
-        console.log('this is board[y][x]', board[y][x])
-        board[y][x] = !board[y][x]
+    setBoard(oldBoard => {
+      const [y, x] = coord.split('-').map(Number)
+      
+      const boardCopy = oldBoard.map(row => [...row])
+
+      const flipCell = (y, x, boardCopy) => {
+        console.log('this is inside flipCell')
+        if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
+          console.log('this is boardCopy[y][x]', boardCopy[y][x])
+          boardCopy[y][x] = !boardCopy[y][x]
+        }
       }
-    }
-
-    flipCell(y, x); //Flip initial cell
     
-    // flipCell(y, x - 1); //flip left
-    // flipCell(y, x + 1); //flip right
-    // flipCell(y - 1, x); //flip below
-    // flipCell(y + 1, x); //flip above
+      flipCell(y, x, boardCopy); //flip initial cell
+      flipCell(y, x - 1, boardCopy); //flip left
+      flipCell(y, x + 1, boardCopy); //flip right
+      flipCell(y - 1, x, boardCopy); //flip below
+      flipCell(y + 1, x, boardCopy); //flip above
 
-    let hasWon = board.every(row => row.every(cell => !cell))
-    setHasWon(hasWon)
+      let hasWon = board.every(row => row.every(cell => !cell))
+      setHasWon(hasWon)
+      return boardCopy
+    })
   }
   
   function makeTable() {
