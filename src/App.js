@@ -6,7 +6,8 @@ import './App.css';
 // import CoinDisplay from './CoinDisplay/CoinDisplay'
 // import BoxDisplay from './BoxDisplay/BoxDisplay';
 // import Hangman from './Hangman/Hangman';
-import Board from './Board/Board'
+// import Board from './Board/Board'
+import Form from './Form/Form';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* <CoinDisplay /> */}
       {/* <BoxDisplay numBoxes={15}/> */}
       {/* <Hangman maxWrong={7}/> */}
-      {<Board />}
+      {/* {<Board />} */}
+      <Form />
     </>
   );
 }
