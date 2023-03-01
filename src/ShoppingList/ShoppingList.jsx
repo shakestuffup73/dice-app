@@ -16,7 +16,7 @@ const ShoppingList = (props) => {
   return ( 
     <>
       <div>
-        <ShoppingListForm addItem={addItem} />
+        <ShoppingListForm addItem={addItem} items={items} />
       </div>
       <ul>
         {items.map((item, idx) => (
