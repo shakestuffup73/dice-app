@@ -1,16 +1,18 @@
 import { useState } from "react";
 import ShoppingItem from "../ShoppingItem/ShoppingItem";
 import ShoppingListForm from "../ShoppingListForm/ShoppingListForm";
+import {v4 as uuidv4 } from 'uuid'
 
 const ShoppingList = (props) => {
 
   const [items, setItems] = useState([
-    {name: 'banana', qty: 2},
-    {name: 'eggs', qty: 1}
+    {name: 'banana', qty: 2, id: uuidv4()},
+    {name: 'eggs', qty: 1, id: uuidv4()}
   ])
 
   const addItem = (item) => {
-    setItems([...items, item])
+    let newItem = {...item, id: uuidv4()}
+    setItems([...items, newItem])
   }
 
   return ( 
@@ -19,8 +21,8 @@ const ShoppingList = (props) => {
         <ShoppingListForm addItem={addItem} />
       </div>
       <ul>
-        {items.map((item, idx) => (
-          <ShoppingItem key={idx} item={item} />
+        {items.map(item => (
+          <ShoppingItem key={item.id} item={item} />
         ))}
       </ul>
     </>
