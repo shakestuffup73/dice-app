@@ -2,8 +2,8 @@ import { useState } from "react"
 
 const ShoppingListForm = (props) => {
 
-  const { addItem, items } = props
-  
+  const { addItem } = props
+
   const [formData, setFormData] = useState({
     name: '',
     qty: ''
