@@ -1,24 +1,28 @@
 import { useState } from "react";
+import ShoppingItem from "../ShoppingItem/ShoppingItem";
+import ShoppingListForm from "../ShoppingListForm/ShoppingListForm";
 
-const ShoppingList = () => {
+const ShoppingList = (props) => {
 
   const [items, setItems] = useState([
-    { name: 'bread', qty: '1 loaf'},
-    { name: 'milk', qty: '1 gallon'}
+    {name: 'banana', qty: 2},
+    {name: 'eggs', qty: 1}
   ])
 
-  function addItem(item){
+  const addItem = (item) => {
     setItems([...items, item])
   }
 
   return ( 
     <>
+      <div>
+        <ShoppingListForm addItem={addItem} />
+      </div>
       <ul>
         {items.map((item, idx) => (
-          <li>{item.name}: {item.qty}</li>
+          <ShoppingItem key={idx} item={item} />
         ))}
       </ul>
-      <input type="text" />
     </>
   );
 }

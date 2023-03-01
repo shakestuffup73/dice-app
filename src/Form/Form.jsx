@@ -28,7 +28,6 @@ const Form = () => {
           <button>Submit</button>
         </form>
       </div>
-      <ShoppingList />
     </>
   );
 }
