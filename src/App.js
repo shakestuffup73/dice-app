@@ -8,7 +8,8 @@ import './App.css';
 // import Hangman from './Hangman/Hangman';
 // import Board from './Board/Board'
 // import Form from './Form/Form';
-import ShoppingList from './ShoppingList/ShoppingList';
+// import ShoppingList from './ShoppingList/ShoppingList';
+import Box2List from './Box2List/Box2List';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
       {/* <BoxDisplay numBoxes={15}/> */}
       {/* <Hangman maxWrong={7}/> */}
       {/* {<Board />} */}
-      <ShoppingList />
+      {/* <ShoppingList /> */}
+      <Box2List />
     </>
   );
 }
