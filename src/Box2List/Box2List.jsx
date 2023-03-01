@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Box2 from "../Box2/Box2";
+import {v4 as uuidv4 } from 'uuid'
 
 const Box2List = () => {
 
   const [boxes, setBoxes] = useState([
-    {width: 10, height: 40, color: 'orange'}
+    {width: 10, height: 40, color: 'orange', id: uuidv4()}
   ])
 
   const allBoxes = boxes.map(box => (
@@ -12,6 +13,7 @@ const Box2List = () => {
       width={box.width}
       height={box.height}
       color={box.color}
+      key={box.id}
     />
   ))
 
