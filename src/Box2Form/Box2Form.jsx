@@ -17,6 +17,11 @@ const Box2Form = (props) => {
   function handleSubmit(evt){
     evt.preventDefault()
     createBox(formData)
+    setFormData({
+      height: '',
+      width: '',
+      color: ''
+    })
   }
 
   return ( 
