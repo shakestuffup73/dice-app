@@ -18,10 +18,14 @@ const Box2List = () => {
     />
   ))
 
+  function createBox(newBox){
+    setBoxes([...boxes, newBox])
+  }
+
   return ( 
     <>
       <h1>Color Box Maker</h1>
-      <Box2Form />
+      <Box2Form createBox={createBox}/>
       {allBoxes}
     </>
   );

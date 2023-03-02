@@ -1,6 +1,8 @@
 import { useState } from "react"
 
-const Box2Form = () => {
+const Box2Form = (props) => {
+
+  const { createBox } = props
 
   const [formData, setFormData] = useState({
     height: '',
@@ -14,6 +16,7 @@ const Box2Form = () => {
 
   function handleSubmit(evt){
     evt.preventDefault()
+    createBox(formData)
   }
 
   return ( 
@@ -28,7 +31,24 @@ const Box2Form = () => {
             onChange={handleChange}
             id='height' 
           />
+          <label htmlFor="">Width</label>
+          <input 
+            type="text"
+            name='width'
+            value={formData.width}
+            onChange={handleChange}
+            id='width' 
+          />
+          <label htmlFor="">Color</label>
+          <input 
+            type="text"
+            name='color'
+            value={formData.color}
+            onChange={handleChange}
+            id='color' 
+          />
         </div>
+        <button>Add New Box</button>
       </form>
     </>
   );
